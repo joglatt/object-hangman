@@ -2,7 +2,7 @@ var Letter = require("./letter");
 
 var Word = function(guess) {
   // Word.prototype.random();
-  this.currentWord="apple";
+  this.currentWord = "apple";
   this.guess = guess;
   this.arr = [];
   //Runs newLetter function on each letter in currentword.
@@ -14,7 +14,11 @@ var Word = function(guess) {
   //creates string with either blanks or letters
   this.createString = function() {
     for (var i = 0; i < this.arr.length; i++) {
-      this.displayString += " " + this.arr[i].display;
+      if(this.arr[i].boolean === false){
+      this.displayString+=(" " + this.arr[i].display);
+      }else{
+      this.displayString+=(" " + this.arr[i].l); 
+      }
     }
   };
   this.createString();
@@ -27,7 +31,9 @@ var Word = function(guess) {
         this.arr[i].boolean,
         this.arr[i].display
       );
-      console.log(this.arr[i].l + "     " + this.guess);
+      console.log(
+        this.arr[i].l + "     " + this.guess + "     " + this.arr[i].display + "     "+ this.arr[i].boolean
+      );
     }
   };
 };
@@ -36,7 +42,6 @@ Word.prototype.random = function() {
     Word.prototype.words[
       Math.floor(Math.random() * Word.prototype.words.length)
     ];
-  console.log(this.currentWord);
 };
 Word.prototype.words = [
   "outlaw",
@@ -58,14 +63,14 @@ Word.prototype.words = [
   "rodeo",
   "fisticuffs"
 ];
-var one = new Word("p");
+// var one = new Word("p");
 // console.log(one);
 // console.log(one.displayString);
-one.checkLoop();
-console.log(one);
+// one.checkLoop();
+// console.log(one);
 
 // console.log(one);
-// module.exports = Word;
+module.exports = Word;
 
 // }
 // Word.prototype.check = function() {

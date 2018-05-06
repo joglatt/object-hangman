@@ -25,6 +25,7 @@ var inquirer = require("inquirer");
 
     };
 
-    var game= new Word();
+    var game= new Word("p");
     // game.prototype.random();
-    console.log(game);
+    game.checkLoop();
+    console.log(game)

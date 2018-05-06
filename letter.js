@@ -6,14 +6,14 @@ var Letter = function(l) {
   this.l = l;
   // this.currentWord = "";
   this.display = "_";
-  this.boolean;
+  this.boolean = false;
 }
 //sets a flag to false and if flag turns to true, the letter is revealed
 Letter.prototype.check = function(guess, innerLetter, boolean, display) {
-  if  (guess == innerLetter){
-    console.log("true");
+  if  (guess === innerLetter){
+    console.log("correct")
     boolean = true;
-    display = guess;
+  
   };
 };
 //loops through current word and creates a new letter object for each letter
